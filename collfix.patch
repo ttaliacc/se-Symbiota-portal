@@ -1,0 +1,34 @@
+From c5ce84c9dba1f6dfd1ded4100efca0981f2f0eaf Mon Sep 17 00:00:00 2001
+From: Greg Post <gregory.post@asu.edu>
+Date: Thu, 14 Jul 2022 16:26:53 -0500
+Subject: [PATCH] Update OccurrenceCollectionProfile.php
+
+Seeing run time error(s) when attempting to "Create a New Collection or Observation Profile" on a brand new installation.  This appears to fix the issues.
+---
+ classes/OccurrenceCollectionProfile.php | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/classes/OccurrenceCollectionProfile.php b/classes/OccurrenceCollectionProfile.php
+index f27b543cdd..c370fcb7c6 100644
+--- a/classes/OccurrenceCollectionProfile.php
++++ b/classes/OccurrenceCollectionProfile.php
+@@ -4,7 +4,7 @@
+ 
+ class OccurrenceCollectionProfile extends OmCollections{
+ 
+-	private $collMeta;
++	private $collMeta = array();
+ 	private $organizationKey;
+ 	private $installationKey;
+ 	private $datasetKey;
+@@ -928,6 +928,7 @@ public function materialSampleIsActive(){
+ 
+ 	//Misc functions
+ 	public function cleanOutArr(&$arr){
++		if(!is_array($arr)) return;
+ 		foreach($arr as $k => $v){
+ 			$arr[$k] = $this->cleanOutStr($v);
+ 		}
+	}
+}
+ }
