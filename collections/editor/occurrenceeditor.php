@@ -674,14 +674,6 @@ else{
 											(isset($collMap['collectioncode'])?'&collectioncode='.urlencode($collMap['collectioncode']):'').
 											(isset($collMap['institutioncode'])?'&institutioncode='.urlencode($collMap['institutioncode']):'').
 											'&catalognumber='.urlencode($occArr['catalognumber']);
-										/*
-										Add $fragVars above 
-										?>
-											<li id="fragTab">
-												<a href="includes/fragmenttab.php?<?php echo $anchorVars.'&'.$fragVars; ?>" style=""><?php echo (isset($LANG['FRAGMENTS'])?$LANG['FRAGMENTS']:'Fragments'); ?></a>
-											</li>
-											<?php
-										*/
 										if($isEditor < 4){
 											?>
 											<li id="detTab">
