@@ -1616,9 +1616,12 @@ else{
 												?>
 												<div id="addButtonDiv">
 													<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
-													<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo $LANG['ADD_RECORD']; ?></button>
+													<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
+													//echo $LANG['ADD_RECORD']; ?></button> -->
+
+<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Save Edits'; ?></button>
 													<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
-													<div style="margin-left:15px;font-weight:bold;">
+													<div style="margin-left:15px;font-weight:bold;"></div>
 														<?php echo $LANG['FOLLOW_UP']; ?>:
 													</div>
 													<div style="margin-left:20px;">
