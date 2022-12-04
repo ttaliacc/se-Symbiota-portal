@@ -1615,15 +1615,14 @@ else{
 											else{
 												?>
 												<div>
-													<label for="">Status Auto Set:</label>
-													<select name="" id="">
-														<option value="">Not activated</option>
-
-													</select>
+													
 													<?php 
 														echo (isset($LANG['StatusAutoSet'])?$LANG['STASTU']:'Status Auto-Set'); 
 													?>
-													
+													<label for="">Status Auto Set:</label>
+													<select name="" id="">
+														<option value="">Not activated</option>
+													</select>
 													<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
 													<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
 												</div>	
