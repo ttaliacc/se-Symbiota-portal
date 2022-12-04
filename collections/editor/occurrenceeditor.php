@@ -1466,7 +1466,10 @@ else{
                                                     <input type="text" name="datageneralizations" value="<?php echo array_key_exists('datageneralizations',$occArr)?$occArr['datageneralizations']:''; ?>" onchange="fieldChanged('datageneralizations');" />
                                                 </div>
 												<div>
-													<?php echo("<p>Key:      Modified:     Enterned By:     </p>"); ?>
+													<br>
+														<?php echo (defined('INFO')?INFO:'Key:      Modified:     Enterned By:'); ?>
+													
+													</br>
 												</div>
 												
 											</div>
