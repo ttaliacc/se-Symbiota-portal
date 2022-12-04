@@ -1465,6 +1465,10 @@ else{
                                                     <?php echo (defined('DATAGENERALIZATIONSLABEL')?DATAGENERALIZATIONSLABEL:'Data Generalizations'); ?><br/>
                                                     <input type="text" name="datageneralizations" value="<?php echo array_key_exists('datageneralizations',$occArr)?$occArr['datageneralizations']:''; ?>" onchange="fieldChanged('datageneralizations');" />
                                                 </div>
+												<div>
+													<?php echo("<p>Key:      Modified:     Enterned By:     </p>"); ?>
+												</div>
+												
 											</div>
 											<?php
 											if($occId){
