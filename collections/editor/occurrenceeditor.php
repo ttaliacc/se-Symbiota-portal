@@ -1492,7 +1492,7 @@ else{
 											}
 											?>
 											<div>
-												<?php echo (defined('INFO')?INFO:'Key:      Modified:     Entered by:'); ?>
+												<?php echo (defined('INFO')?INFO:'Key:     Modified:    Entered by:'); ?>
 											</div>
 										</fieldset>
 										<?php
