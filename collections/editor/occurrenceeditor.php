@@ -755,7 +755,7 @@ else{
 													<br/>
 													<input type="text" id="catalognumber" name="catalognumber" value="<?php echo array_key_exists('catalognumber',$occArr)?$occArr['catalognumber']:''; ?>" onchange="fieldChanged('catalognumber');" <?php if($isEditor > 2) echo 'disabled'; ?> autocomplete="off" />
 												</div>
-												<div id="otherCatalogNumbersDiv">
+												<!-- <div id="otherCatalogNumbersDiv">
 													<div id="identifierDiv" class="divTable">
 														<div class="divTableHeading">
 															<div class="divTableRow">
@@ -792,7 +792,7 @@ else{
 															</div>
 														</div>
 													</div>
-												</div>
+												</div> -->
 											</div>
 											<div style="clear:both;">
 												<div id="recordedByDiv">
