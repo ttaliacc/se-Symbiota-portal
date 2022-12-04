@@ -1057,7 +1057,7 @@ else{
 												<input type="checkbox" name="security" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
 													<?php echo (isset($LANG['SECURITY'])?$LANG['SECURITY']:'Locality Security'); ?>
 													<?php
-													echo (defined('LOCALITYSECURITYLABEL')?LOCALITYSECURITYLABEL:'Security');
+													//echo (defined('LOCALITYSECURITYLABEL')?LOCALITYSECURITYLABEL:'Security');
 													$securityCode = array_key_exists('localitysecurity',$occArr)&&$occArr['localitysecurity']?$occArr['localitysecurity']:0;
 													$lsrValue = array_key_exists('localitysecurityreason',$occArr)?$occArr['localitysecurityreason']:'';
 													?>:
