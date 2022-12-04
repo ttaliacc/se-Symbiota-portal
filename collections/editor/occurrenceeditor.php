@@ -1614,8 +1614,8 @@ else{
 											}
 											else{
 												?>
-												<div style = "display: flex-box">
-													<div></div>
+												<div class="container">
+													<div>
 														<!-- html static dropdown for UI, change to php to connect to databases after further instruction -->
 														<label for="">Status Auto Set:</label>
 														<select name="" id="">
@@ -1640,8 +1640,9 @@ else{
 													<div style="margin-left:15px;font-weight:bold;"></div>
 													<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
 														<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
-														
+													
 													</div>
+
 													<div style="margin-left:20px;">
 
 													
@@ -1650,6 +1651,7 @@ else{
 														<!-- <input name="gotomode" type="radio" value="2" <?php //echo ($goToMode==2?'CHECKED':''); ?> /> <?php //echo $LANG['GO_NEW_CARRYOVER']; ?> -->
 														<!-- <input name="gotomode" type="radio" value="0" <?php //echo (!$goToMode?'CHECKED':''); ?> /> <?php //echo $LANG['REMAIN_ON_PAGE']; ?> -->
 													</div>
+													</fieldset>	
 												</div>
 												<?php
 											}
