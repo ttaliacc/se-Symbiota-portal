@@ -1468,6 +1468,10 @@ else{
 												
 											</div>
 
+											<div>
+												<?php echo (defined('INFO')?INFO:'Key:      Modified:     Entered by:'); ?>
+											</div>
+
 											<?php
 											if($occId){
 												?>
