@@ -1622,12 +1622,13 @@ else{
 													<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Go to New Occurence Record'; ?></button>
 													<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
 													<div style="margin-left:15px;font-weight:bold;"></div>
-														<?php echo $LANG['FOLLOW_UP']; ?>:
+													<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
+														<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
+														
 													</div>
 													<div style="margin-left:20px;">
 
-														<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
-														<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
+													
 														<?php
 														// <input name="gotomode" type="radio" value="1" <?php //echo ($goToMode==1?'CHECKED':''); ?> <?php //echo $LANG['GO_TO_NEW']; ?>
 														<!-- <input name="gotomode" type="radio" value="2" <?php //echo ($goToMode==2?'CHECKED':''); ?> /> <?php //echo $LANG['GO_NEW_CARRYOVER']; ?> -->
