@@ -928,19 +928,19 @@ else{
 											</div>
 											<div style="clear:both;padding:3px 0px 0px 10px;">
 												<?php
-												if(!$occId){
-													echo '<div id="idRankDiv">';
-													echo (defined('IDCONFIDENCELABEL')?IDCONFIDENCELABEL:'ID Confidence');
-													echo ' <a href="#" onclick="return dwcDoc(\'idConfidence\')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a> ';
-													echo '<select name="confidenceranking" onchange="fieldChanged(\'confidenceranking\')">';
-													echo '<option value="">'.(isset($LANG['UNDEFINED'])?$LANG['UNDEFINED']:'Undefined').'</option>';
-													$idRankArr = array(10 => 'Absolute', 9 => 'Very High', 8 => 'High', 7 => 'High - verification requested', 6 => 'Medium - insignificant material', 5 => 'Medium', 4 => 'Medium - verification requested',3 => 'Low - insignificant material', 2 => 'Low', 1 => 'Low - ID Requested', 0 => 'ID Requested');
-													foreach($idRankArr as $rankKey => $rankText){
-														echo '<option value="'.$rankKey.'">'.$rankKey.' - '.$rankText.'</option>';
-													}
-													echo '</select>';
-													echo '</div>';
-												}
+												// if(!$occId){
+												// 	echo '<div id="idRankDiv">';
+												// 	echo (defined('IDCONFIDENCELABEL')?IDCONFIDENCELABEL:'ID Confidence');
+												// 	echo ' <a href="#" onclick="return dwcDoc(\'idConfidence\')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a> ';
+												// 	echo '<select name="confidenceranking" onchange="fieldChanged(\'confidenceranking\')">';
+												// 	echo '<option value="">'.(isset($LANG['UNDEFINED'])?$LANG['UNDEFINED']:'Undefined').'</option>';
+												// 	$idRankArr = array(10 => 'Absolute', 9 => 'Very High', 8 => 'High', 7 => 'High - verification requested', 6 => 'Medium - insignificant material', 5 => 'Medium', 4 => 'Medium - verification requested',3 => 'Low - insignificant material', 2 => 'Low', 1 => 'Low - ID Requested', 0 => 'ID Requested');
+												// 	foreach($idRankArr as $rankKey => $rankText){
+												// 		echo '<option value="'.$rankKey.'">'.$rankKey.' - '.$rankText.'</option>';
+												// 	}
+												// 	echo '</select>';
+												// 	echo '</div>';
+												// }
 												?>
 												<div id="identificationQualifierDiv">
 													<?php echo (defined('IDENTIFICATIONQUALIFIERLABEL')?IDENTIFICATIONQUALIFIERLABEL:'ID Qualifier'); ?>
