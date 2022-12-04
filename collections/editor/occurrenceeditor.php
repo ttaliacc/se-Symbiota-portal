@@ -1615,19 +1615,19 @@ else{
 											else{
 												?>
 												<div>
-													
-													<?php 
-														echo (isset($LANG['StatusAutoSet'])?$LANG['STASTU']:'Status Auto-Set'); 
-													?>
-													<label for="">Status Auto Set:</label>
-													<select name="" id="">
-														<option value="">Not activated</option>
-													</select>
-													<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
-													<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
+													<div style = "display: flex-box">
+														<!-- html static dropdown for UI, change to php to connect to databases after further instruction -->
+														<label for="">Status Auto Set:</label>
+														<select name="" id="">
+															<option value="">Not activated</option>
+														</select>
+														<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
+														<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
+													</div>
 												</div>	
 
 												<div id="addButtonDiv">
+													<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Collector Info'); ?></legend>
 													<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
 													<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
 													//echo $LANG['ADD_RECORD']; ?></button> -->
