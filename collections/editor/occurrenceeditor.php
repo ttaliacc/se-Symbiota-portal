@@ -797,8 +797,39 @@ else{
 													<?php echo (defined('OtherCat')?OtherCat:'Other Cat #s'); ?>
 													<a href="#" onclick="return dwcDoc('OtherCat')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
 													<br/>
+													<!-- have not implemented array functionality yet,(just UI) -->
 													<input type="text" id="OtherCatName" name="OtherCatName" value="<?php echo array_key_exists('OtherCatName',$occArr)?$occArr['OtherCatName']:''; ?>" onchange="fieldChanged('OtherCatName');" <?php if($isEditor > 2) echo 'disabled'; ?> autocomplete="off" />
 												</div>
+												<div id="recordedByDiv">
+													<?php echo (defined('RECORDEDBYLABEL')?RECORDEDBYLABEL:'Collector'); ?>
+													<a href="#" onclick="return dwcDoc('recordedBy')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
+													<br/>
+													<input type="text" name="recordedby" maxlength="255" value="<?php echo array_key_exists('recordedby',$occArr)?$occArr['recordedby']:''; ?>" onchange="fieldChanged('recordedby');" />
+												</div>
+												<div id="recordNumberDiv">
+													<?php echo (defined('RECORDNUMBERLABEL')?RECORDNUMBERLABEL:'Number'); ?>
+													<a href="#" onclick="return dwcDoc('recordNumber')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
+													<br/>
+													<input type="text" name="recordnumber" maxlength="45" value="<?php echo array_key_exists('recordnumber',$occArr)?$occArr['recordnumber']:''; ?>" onchange="recordNumberChanged(this);" />
+												</div>
+												<div id="eventDateDiv" title="Earliest Date Collected">
+													<?php echo (defined('EVENTDATELABEL')?EVENTDATELABEL:'Date'); ?>
+													<a href="#" onclick="return dwcDoc('eventDate')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
+													<br/>
+													<input type="text" name="eventdate" value="<?php echo array_key_exists('eventdate',$occArr)?$occArr['eventdate']:''; ?>" onchange="eventDateChanged(this);" />
+												</div>
+												<?php
+												if(!defined('DUPESEARCH') || DUPESEARCH){
+													?>
+													<div id="dupesDiv">
+														<input type="button" value="Duplicates" onclick="searchDupes(this.form);" /><br/>
+														<input type="checkbox" name="autodupe" value="1" onchange="autoDupeChanged(this)" tabindex="-1" />
+														<?php echo (isset($LANG['AUTO_SEARCH'])?$LANG['AUTO_SEARCH']:'Auto search'); ?>
+													</div>
+													<?php
+												}
+												?>
+
 											</div>
 											<div style="clear:both;">
 												<div id="recordedByDiv">
@@ -831,41 +862,7 @@ else{
 												}
 												?>
 											</div>
-											<div style="clear:both;">
-												<div id="associatedCollectorsDiv">
-													<div class="flabel">
-														<?php echo (defined('ASSOCIATEDCOLLECTORSLABEL')?ASSOCIATEDCOLLECTORSLABEL:'Associated Collectors'); ?>
-														<a href="#" onclick="return dwcDoc('associatedCollectors')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
-													</div>
-													<input type="text" name="associatedcollectors" maxlength="255" value="<?php echo array_key_exists('associatedcollectors',$occArr)?$occArr['associatedcollectors']:''; ?>" onchange="fieldChanged('associatedcollectors');" />
-												</div>
-												<div id="verbatimEventDateDiv">
-													<div class="flabel">
-														<?php echo (defined('VERBATIMEVENTDATELABEL')?VERBATIMEVENTDATELABEL:'Verbatim Date'); ?>
-														<a href="#" onclick="return dwcDoc('verbatimEventDate')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
-													</div>
-													<input type="text" name="verbatimeventdate" maxlength="255" value="<?php echo array_key_exists('verbatimeventdate',$occArr)?$occArr['verbatimeventdate']:''; ?>" onchange="verbatimEventDateChanged(this)" />
-												</div>
-												<div id="dateToggleDiv">
-													<a href="#" onclick="toggle('dateextradiv');return false;" tabindex="-1"><img class="editimg" src="../../images/editplus.png" /></a>
-												</div>
-												<?php
-												if($loanArr = $occManager->getLoanData()){
-													?>
-													<fieldset style="float:right;margin:3px;padding:5px;border:1px solid red;">
-														<legend style="color:red;"><?php echo (isset($LANG['OUT_ON_LOAN'])?$LANG['OUT_ON_LOAN']:'Out On Loan'); ?></legend>
-														<b><?php echo (isset($LANG['TO'])?$LANG['TO']:'To'); ?>:</b> <a href="../loans/outgoing.php?tabindex=1&collid=<?php echo $occManager->getCollId().'&loanid='.$loanArr['id']; ?>"><?php echo $loanArr['code']; ?></a><br/>
-														<b><?php echo (isset($LANG['DUE_DATE'])?$LANG['DUE_DATE']:'Due date'); ?>:</b> <?php echo (isset($loanArr['date'])?$loanArr['date']:(isset($LANG['NOT_DEFINED'])?$LANG['NOT_DEFINED']:'Not Defined')); ?>
-													</fieldset>
-													<?php
-												}
-												?>
-												<div id="dupeMsgDiv">
-													<div id="dupesearch"><?php echo (isset($LANG['SEARCHING_DUPE'])?$LANG['SEARCHING_DUPE']:'Searching for Duplicates'); ?>...</div>
-													<div id="dupenone" style="display:none;color:red;"><?php echo (isset($LANG['NO_DUPES_FOUND'])?$LANG['NO_DUPES_FOUND']:'No Duplicates Found'); ?></div>
-													<div id="dupedisplay" style="display:none;color:green;"><?php echo (isset($LANG['DISPLAY_DUPES'])?$LANG['DISPLAY_DUPES']:'Displaying Duplicates'); ?></div>
-												</div>
-											</div>
+											
 											<div id="dateextradiv">
 												<div id="ymdDiv">
 													<?php echo (defined('YYYYMMDDLABEL')?YYYYMMDDLABEL:'YYYY-MM-DD'); ?>:
