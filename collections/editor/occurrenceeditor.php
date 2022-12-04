@@ -1469,12 +1469,8 @@ else{
 											</div>
 											<br>
 											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>			
+							
+														
 											<div>
 												<?php echo (defined('INFO')?INFO:'Key:      Modified:     Entered by:'); ?>
 											</div>
@@ -1502,9 +1498,6 @@ else{
 												<?php
 											}
 											?>
-											<div>
-												<?php echo (defined('INFO')?INFO:'Key:     Modified:    Entered by:'); ?>
-											</div>
 										</fieldset>
 										<?php
 										if($navStr){
