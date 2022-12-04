@@ -793,6 +793,12 @@ else{
 														</div>
 													</div>
 												</div> -->
+												<div id="OtherCat">
+													<?php echo (defined('OtherCat')?OtherCat:'Other Cat #s'); ?>
+													<a href="#" onclick="return dwcDoc('OtherCat')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
+													<br/>
+													<input type="text" id="OtherCatName" name="OtherCatName" value="<?php echo array_key_exists('OtherCatName',$occArr)?$occArr['OtherCatName']:''; ?>" onchange="fieldChanged('OtherCatName');" <?php if($isEditor > 2) echo 'disabled'; ?> autocomplete="off" />
+												</div>
 											</div>
 											<div style="clear:both;">
 												<div id="recordedByDiv">
