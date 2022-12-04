@@ -1619,6 +1619,9 @@ else{
 													<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
 													//echo $LANG['ADD_RECORD']; ?></button> -->
 
+													<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
+													<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
+
 													<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Go to New Occurence Record'; ?></button>
 													<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
 													<div style="margin-left:15px;font-weight:bold;"></div>
@@ -1640,6 +1643,7 @@ else{
 											?>
 										</div>
 										<div style="clear:both;">&nbsp;</div>
+										
 									</form>
 								</div>
 							</div>
