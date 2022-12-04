@@ -1467,7 +1467,9 @@ else{
 													</div>
 												
 											</div>
-
+											<br>
+											<br>
+											<br>			
 											<div>
 												<?php echo (defined('INFO')?INFO:'Key:      Modified:     Entered by:'); ?>
 											</div>
