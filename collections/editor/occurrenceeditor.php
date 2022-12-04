@@ -1614,8 +1614,8 @@ else{
 											}
 											else{
 												?>
-												<div>
-													<div style = "display: flex-box">
+												<div style = "display: flex-box">
+													<div></div>
 														<!-- html static dropdown for UI, change to php to connect to databases after further instruction -->
 														<label for="">Status Auto Set:</label>
 														<select name="" id="">
@@ -1627,7 +1627,8 @@ else{
 												</div>	
 
 												<div id="addButtonDiv">
-													<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Collector Info'); ?></legend>
+													<fieldset>
+													<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Additional Options'); ?></legend>
 													<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
 													<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
 													//echo $LANG['ADD_RECORD']; ?></button> -->
