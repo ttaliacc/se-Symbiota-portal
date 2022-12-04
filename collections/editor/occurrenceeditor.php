@@ -1614,7 +1614,7 @@ else{
 											}
 											else{
 												?>
-												<div class="container">
+												<div style= "display: flex">
 													<div>
 														<!-- html static dropdown for UI, change to php to connect to databases after further instruction -->
 														<label for="">Status Auto Set:</label>
@@ -1624,34 +1624,34 @@ else{
 														<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
 														<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
 													</div>
-												</div>	
-
-												<div id="addButtonDiv">
-													<fieldset>
-													<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Additional Options'); ?></legend>
-													<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
-													<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
-													//echo $LANG['ADD_RECORD']; ?></button> -->
-
 													
 
-													<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Go to New Occurence Record'; ?></button>
-													<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
-													<div style="margin-left:15px;font-weight:bold;"></div>
-													<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
-														<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
-													
+													<div id="addButtonDiv">
+														<fieldset>
+														<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Additional Options'); ?></legend>
+														<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
+														<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
+														//echo $LANG['ADD_RECORD']; ?></button> -->
+
+														
+
+														<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Go to New Occurence Record'; ?></button>
+														<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
+														<div style="margin-left:15px;font-weight:bold;"></div>
+														<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
+															<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
+														</fieldset>	
+														</div>
+
+														<div style="margin-left:20px;">
+
+														
+															<?php
+															// <input name="gotomode" type="radio" value="1" <?php //echo ($goToMode==1?'CHECKED':''); ?> <?php //echo $LANG['GO_TO_NEW']; ?>
+															<!-- <input name="gotomode" type="radio" value="2" <?php //echo ($goToMode==2?'CHECKED':''); ?> /> <?php //echo $LANG['GO_NEW_CARRYOVER']; ?> -->
+															<!-- <input name="gotomode" type="radio" value="0" <?php //echo (!$goToMode?'CHECKED':''); ?> /> <?php //echo $LANG['REMAIN_ON_PAGE']; ?> -->
+														</div>
 													</div>
-
-													<div style="margin-left:20px;">
-
-													
-														<?php
-														// <input name="gotomode" type="radio" value="1" <?php //echo ($goToMode==1?'CHECKED':''); ?> <?php //echo $LANG['GO_TO_NEW']; ?>
-														<!-- <input name="gotomode" type="radio" value="2" <?php //echo ($goToMode==2?'CHECKED':''); ?> /> <?php //echo $LANG['GO_NEW_CARRYOVER']; ?> -->
-														<!-- <input name="gotomode" type="radio" value="0" <?php //echo (!$goToMode?'CHECKED':''); ?> /> <?php //echo $LANG['REMAIN_ON_PAGE']; ?> -->
-													</div>
-													</fieldset>	
 												</div>
 												<?php
 											}
