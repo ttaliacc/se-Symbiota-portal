@@ -6,6 +6,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 
 //123456789
+// echo "<h1>Hello</h1>";
 
 $occId = array_key_exists('occid',$_REQUEST)?$_REQUEST['occid']:'';
 $collId = array_key_exists('collid',$_REQUEST)?$_REQUEST['collid']:false;
