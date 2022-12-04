@@ -1464,15 +1464,10 @@ else{
                                                 <div id="dataGeneralizationsDiv" title="<?php echo $LANG['AKA_GENERAL']; ?>">
                                                     <?php echo (defined('DATAGENERALIZATIONSLABEL')?DATAGENERALIZATIONSLABEL:'Data Generalizations'); ?><br/>
                                                     <input type="text" name="datageneralizations" value="<?php echo array_key_exists('datageneralizations',$occArr)?$occArr['datageneralizations']:''; ?>" onchange="fieldChanged('datageneralizations');" />
-                                                </div>
-												<div>
-													<br>
-														<?php echo (defined('INFO')?INFO:'Key:      Modified:     Enterned By:'); ?>
-													
-													</br>
-												</div>
+													</div>
 												
 											</div>
+
 											<?php
 											if($occId){
 												?>
@@ -1496,6 +1491,9 @@ else{
 												<?php
 											}
 											?>
+											<div>
+												<?php echo (defined('INFO')?INFO:'Key:      Modified:     Entered by:'); ?>
+											</div>
 										</fieldset>
 										<?php
 										if($navStr){
