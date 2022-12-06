@@ -4,10 +4,6 @@ if($LANG_TAG != 'en' && file_exists($SERVER_ROOT.'/content/lang/collections/edit
 else include_once($SERVER_ROOT.'/content/lang/collections/editor/occurrenceeditor.en.php');
 header("Content-Type: text/html; charset=".$CHARSET);
 
-
-//123456789
-// echo "<h1>Hello</h1>";
-
 $occId = array_key_exists('occid',$_REQUEST)?$_REQUEST['occid']:'';
 $collId = array_key_exists('collid',$_REQUEST)?$_REQUEST['collid']:false;
 $tabTarget = array_key_exists('tabtarget',$_REQUEST)?$_REQUEST['tabtarget']:0;
@@ -755,7 +751,7 @@ else{
 													<br/>
 													<input type="text" id="catalognumber" name="catalognumber" value="<?php echo array_key_exists('catalognumber',$occArr)?$occArr['catalognumber']:''; ?>" onchange="fieldChanged('catalognumber');" <?php if($isEditor > 2) echo 'disabled'; ?> autocomplete="off" />
 												</div>
-												<!-- <div id="otherCatalogNumbersDiv">
+												<div id="otherCatalogNumbersDiv">
 													<div id="identifierDiv" class="divTable">
 														<div class="divTableHeading">
 															<div class="divTableRow">
@@ -792,13 +788,6 @@ else{
 															</div>
 														</div>
 													</div>
-												</div> -->
-												<div id="OtherCat">
-													<?php echo (defined('OtherCat')?OtherCat:'Other Cat #s'); ?>
-													<a href="#" onclick="return dwcDoc('OtherCat')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
-													<br/>
-													<!-- have not implemented array functionality yet,(just UI) -->
-													<input type="text" id="OtherCatName" name="OtherCatName" value="<?php echo array_key_exists('OtherCatName',$occArr)?$occArr['OtherCatName']:''; ?>" onchange="fieldChanged('OtherCatName');" <?php if($isEditor > 2) echo 'disabled'; ?> autocomplete="off" />
 												</div>
 											</div>
 											<div style="clear:both;">
@@ -902,7 +891,7 @@ else{
 											?>
 										</fieldset>
 										<fieldset>
-											<legend><?php echo (isset($LANG['LATEST_ID'])?$LANG['LATEST_ID']:'Latest Identification'); ?></legend>
+											<legend><?php echo (isset($LANG['LATEST_ID'])?$LANG['LATEST_ID']:'Latest'); ?></legend>
 											<div style="clear:both;">
 												<div id="scinameDiv">
 													<?php echo (defined('SCIENTIFICNAMELABEL')?SCIENTIFICNAMELABEL:(isset($LANG['SCINAME'])?$LANG['SCINAME']:'Scientific Name')); ?>
@@ -928,19 +917,19 @@ else{
 											</div>
 											<div style="clear:both;padding:3px 0px 0px 10px;">
 												<?php
-												// if(!$occId){
-												// 	echo '<div id="idRankDiv">';
-												// 	echo (defined('IDCONFIDENCELABEL')?IDCONFIDENCELABEL:'ID Confidence');
-												// 	echo ' <a href="#" onclick="return dwcDoc(\'idConfidence\')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a> ';
-												// 	echo '<select name="confidenceranking" onchange="fieldChanged(\'confidenceranking\')">';
-												// 	echo '<option value="">'.(isset($LANG['UNDEFINED'])?$LANG['UNDEFINED']:'Undefined').'</option>';
-												// 	$idRankArr = array(10 => 'Absolute', 9 => 'Very High', 8 => 'High', 7 => 'High - verification requested', 6 => 'Medium - insignificant material', 5 => 'Medium', 4 => 'Medium - verification requested',3 => 'Low - insignificant material', 2 => 'Low', 1 => 'Low - ID Requested', 0 => 'ID Requested');
-												// 	foreach($idRankArr as $rankKey => $rankText){
-												// 		echo '<option value="'.$rankKey.'">'.$rankKey.' - '.$rankText.'</option>';
-												// 	}
-												// 	echo '</select>';
-												// 	echo '</div>';
-												// }
+												if(!$occId){
+													echo '<div id="idRankDiv">';
+													echo (defined('IDCONFIDENCELABEL')?IDCONFIDENCELABEL:'ID Confidence');
+													echo ' <a href="#" onclick="return dwcDoc(\'idConfidence\')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a> ';
+													echo '<select name="confidenceranking" onchange="fieldChanged(\'confidenceranking\')">';
+													echo '<option value="">'.(isset($LANG['UNDEFINED'])?$LANG['UNDEFINED']:'Undefined').'</option>';
+													$idRankArr = array(10 => 'Absolute', 9 => 'Very High', 8 => 'High', 7 => 'High - verification requested', 6 => 'Medium - insignificant material', 5 => 'Medium', 4 => 'Medium - verification requested',3 => 'Low - insignificant material', 2 => 'Low', 1 => 'Low - ID Requested', 0 => 'ID Requested');
+													foreach($idRankArr as $rankKey => $rankText){
+														echo '<option value="'.$rankKey.'">'.$rankKey.' - '.$rankText.'</option>';
+													}
+													echo '</select>';
+													echo '</div>';
+												}
 												?>
 												<div id="identificationQualifierDiv">
 													<?php echo (defined('IDENTIFICATIONQUALIFIERLABEL')?IDENTIFICATIONQUALIFIERLABEL:'ID Qualifier'); ?>
@@ -1013,14 +1002,12 @@ else{
 													<br/>
 													<input type="text" id="ffmunicipality" name="municipality" value="<?php echo array_key_exists('municipality',$occArr)?$occArr['municipality']:''; ?>" onchange="fieldChanged('municipality');" autocomplete="off" />
 												</div>
-												<!-- <div id="locationIdDiv">
-													<?php 
-													// echo (defined('LOCATIONIDLABEL')?LOCATIONIDLABEL:'Location ID'); 
-													?>
+												<div id="locationIdDiv">
+													<?php echo (defined('LOCATIONIDLABEL')?LOCATIONIDLABEL:'Location ID'); ?>
 													<a href="#" onclick="return dwcDoc('locationID')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a>
 													<br/>
 													<input type="text" id="locationid" name="locationid" value="<?php echo array_key_exists('locationid',$occArr)?$occArr['locationid']:''; ?>" onchange="fieldChanged('locationid');" autocomplete="off" />
-												</div> -->
+												</div>
 											</div>
 											<div id="localityDiv">
 												<?php echo (defined('LOCALITYLABEL')?LOCALITYLABEL:'Locality'); ?>
@@ -1050,28 +1037,20 @@ else{
 												echo (isset($LANG['DEACTIVATE_LOOKUP'])?$LANG['DEACTIVATE_LOOKUP']:'Deactivate Locality Lookup').'</div>';
 											}
 											?>
-
 											<div id="localSecurityDiv">
 												<div style="float:left;">
-												<!-- create a function for when the security value is changed (checkbox checked) -->
-												<input type="checkbox" name="security" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
-													<?php echo (isset($LANG['SECURITY'])?$LANG['SECURITY']:'Locality Security'); ?>
 													<?php
-													//echo (defined('LOCALITYSECURITYLABEL')?LOCALITYSECURITYLABEL:'Security');
+													echo (defined('LOCALITYSECURITYLABEL')?LOCALITYSECURITYLABEL:'Security');
 													$securityCode = array_key_exists('localitysecurity',$occArr)&&$occArr['localitysecurity']?$occArr['localitysecurity']:0;
 													$lsrValue = array_key_exists('localitysecurityreason',$occArr)?$occArr['localitysecurityreason']:'';
 													?>:
-
-													<!-- <select name="localitysecurity" onchange="securityChanged(this.form);" title="<?php echo (isset($LANG['SECURITY_SETTINGS'])?$LANG['SECURITY_SETTINGS']:'Security Settings'); ?>" tabindex="-1">
-														<option value="0">
-														<?php 
-														// echo (isset($LANG['SEC_NOT_APPLIED'])?$LANG['SEC_NOT_APPLIED']:'Security not applied'); 
-														?></option>
+													<select name="localitysecurity" onchange="securityChanged(this.form);" title="<?php echo (isset($LANG['SECURITY_SETTINGS'])?$LANG['SECURITY_SETTINGS']:'Security Settings'); ?>" tabindex="-1">
+														<option value="0"><?php echo (isset($LANG['SEC_NOT_APPLIED'])?$LANG['SEC_NOT_APPLIED']:'Security not applied'); ?></option>
 														<option value="0">--------------------------</option>
 														<?php
-														// echo '<option value="1" '.($securityCode?'SELECTED':'').'>'.(isset($LANG['LOCALITY_SECURITY'])?$LANG['LOCALITY_SECURITY']:'Locality Security').'</option>';
+														echo '<option value="1" '.($securityCode?'SELECTED':'').'>'.(isset($LANG['LOCALITY_SECURITY'])?$LANG['LOCALITY_SECURITY']:'Locality Security').'</option>';
 														?>
-													</select> -->
+													</select>
 													<a href="#" onclick="return dwcDoc('localitySecurity')" tabindex="-1"><img class="docimg" src="../../images/qmark.png" /></a><br/>
 												</div>
 												<div id="locsecreason" style="margin-left:5px;border:2px solid gray;float:left;display:<?php echo ($lsrValue||$securityCode?'inline':'none') ?>;padding:3px">
@@ -1082,7 +1061,6 @@ else{
 													<input type="text" name="localitysecurityreason" tabindex="-1" onchange="localitySecurityReasonChanged();" value="<?php echo $lsrValue; ?>" title="<?php echo (isset($LANG['EXPLAIN_SEC_STATUS'])?$LANG['EXPLAIN_SEC_STATUS']:'Entering any text will lock security status on or off; leave blank to accept default security status'); ?>" />
 												</div>
 											</div>
-											
 											<div style="clear:both;">
 												<div id="decimalLatitudeDiv">
 													<?php echo (defined('DECIMALLATITUDELABEL')?DECIMALLATITUDELABEL:'Latitude'); ?>
@@ -1464,10 +1442,8 @@ else{
                                                 <div id="dataGeneralizationsDiv" title="<?php echo $LANG['AKA_GENERAL']; ?>">
                                                     <?php echo (defined('DATAGENERALIZATIONSLABEL')?DATAGENERALIZATIONSLABEL:'Data Generalizations'); ?><br/>
                                                     <input type="text" name="datageneralizations" value="<?php echo array_key_exists('datageneralizations',$occArr)?$occArr['datageneralizations']:''; ?>" onchange="fieldChanged('datageneralizations');" />
-													</div>
-												
+                                                </div>
 											</div>
-									
 											<?php
 											if($occId){
 												?>
@@ -1614,43 +1590,17 @@ else{
 											}
 											else{
 												?>
-												<div style= "display: flex">
-													<div>
-														<!-- html static dropdown for UI, change to php to connect to databases after further instruction -->
-														<label for="">Status Auto Set:</label>
-														<select name="" id="">
-															<option value="">Not activated</option>
-														</select>
-														<!-- added save edits button that was originally only inside the if statement because it showed up in the california video. -->
-														<button type="submit" id="saveEditsButton" name="submitaction" value="saveOccurEdits" style="width:150px;" onclick="return verifyFullFormEdits(this.form)" disabled><?php echo $LANG['SAVE_EDITS']; ?></button>
+												<div id="addButtonDiv">
+													<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
+													<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo $LANG['ADD_RECORD']; ?></button>
+													<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
+													<div style="margin-left:15px;font-weight:bold;">
+														<?php echo $LANG['FOLLOW_UP']; ?>:
 													</div>
-													
-
-													<div id="addButtonDiv">
-														<fieldset>
-														<legend><?php echo (isset($LANG['ADDITIONAL_OPTIONS'])?$LANG['ADDITIONAL_OPTIONS']:'Additional Options'); ?></legend>
-														<input name="recordenteredby" type="hidden" value="<?php echo $PARAMS_ARR['un']; ?>" />
-														<!-- <button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php 
-														//echo $LANG['ADD_RECORD']; ?></button> -->
-
-														
-
-														<button name="submitaction" type="submit" value="addOccurRecord" style="width:150px;font-weight:bold;margin:10px;"><?php echo 'Go to New Occurence Record'; ?></button>
-														<input name="qrycnt" type="hidden" value="<?php echo $qryCnt?$qryCnt:''; ?>" />
-														<div style="margin-left:15px;font-weight:bold;"></div>
-														<input type="checkbox" name="carryover" value="1" onchange="localAutoChanged(this)" tabindex="-1" />
-															<?php echo (isset($LANG['CARRYOVER'])?$LANG['CARRYOVER']:'Carry over locality values'); ?>
-														</fieldset>	
-														</div>
-
-														<div style="margin-left:20px;">
-
-														
-															<?php
-															// <input name="gotomode" type="radio" value="1" <?php //echo ($goToMode==1?'CHECKED':''); ?> <?php //echo $LANG['GO_TO_NEW']; ?>
-															<!-- <input name="gotomode" type="radio" value="2" <?php //echo ($goToMode==2?'CHECKED':''); ?> /> <?php //echo $LANG['GO_NEW_CARRYOVER']; ?> -->
-															<!-- <input name="gotomode" type="radio" value="0" <?php //echo (!$goToMode?'CHECKED':''); ?> /> <?php //echo $LANG['REMAIN_ON_PAGE']; ?> -->
-														</div>
+													<div style="margin-left:20px;">
+														<input name="gotomode" type="radio" value="1" <?php echo ($goToMode==1?'CHECKED':''); ?> /> <?php echo $LANG['GO_TO_NEW']; ?><br/>
+														<input name="gotomode" type="radio" value="2" <?php echo ($goToMode==2?'CHECKED':''); ?> /> <?php echo $LANG['GO_NEW_CARRYOVER']; ?><br/>
+														<input name="gotomode" type="radio" value="0" <?php echo (!$goToMode?'CHECKED':''); ?> /> <?php echo $LANG['REMAIN_ON_PAGE']; ?>
 													</div>
 												</div>
 												<?php
@@ -1658,7 +1608,6 @@ else{
 											?>
 										</div>
 										<div style="clear:both;">&nbsp;</div>
-										
 									</form>
 								</div>
 							</div>
