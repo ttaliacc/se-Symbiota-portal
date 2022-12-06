@@ -723,7 +723,7 @@ else{
 								<div id="occdiv">
 									<form id="fullform" name="fullform" action="occurrenceeditor.php" method="post" onsubmit="return verifyFullForm(this);">
 										<fieldset>
-											<legend><?php echo (isset($LANG['COLLECTOR_INFO'])?$LANG['COLLECTOR_INFO']:'Collector Infomation'); ?></legend>
+											<legend><?php echo (isset($LANG['COLLECTOR_INFO'])?$LANG['COLLECTOR_INFO']:'Collector Info'); ?></legend>
 											<?php
 											if($occId){
 												if($fragArr || $specImgArr){
