@@ -5,6 +5,7 @@ else include_once($SERVER_ROOT.'/content/lang/collections/editor/occurrenceedito
 header("Content-Type: text/html; charset=".$CHARSET);
 
 echo("<h1>test<test>");
+echo("<h1>test<test>");
 
 $occId = array_key_exists('occid',$_REQUEST)?$_REQUEST['occid']:'';
 $collId = array_key_exists('collid',$_REQUEST)?$_REQUEST['collid']:false;
