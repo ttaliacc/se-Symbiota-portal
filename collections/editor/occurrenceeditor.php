@@ -529,7 +529,7 @@ else{
 		#identifierDiv img{ width:10px; margin-left: 5px; }
 		.editimg{ width: 15px; }
 
-		/* this is the style for the new form */
+		/* this is the style for the new form ------------------------------------*/
 		*{
             box-sizing: border-box;
             font-family: sans-serif;
@@ -608,7 +608,7 @@ else{
         img{
             
         }
-		/* style for the new form end*/
+		/* style for the new form end ------------------------------------ */
 
 	</style>
 </head>
@@ -694,6 +694,7 @@ else{
 			
 
 	<!-- body part of the new form start from here -->
+	TODO: we leave the old form so that some of its funcitons can be reused in t
 	<div id="wrapper">
     	<div class = "row">
     	<form id="fullform" name="fullform" action="test.php" method="post" onsubmit="return verifyFullForm(this);">
