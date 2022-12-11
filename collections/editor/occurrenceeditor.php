@@ -694,7 +694,7 @@ else{
 			
 
 	<!-- body part of the new form start from here -->
-	TODO: we leave the old form so that some of its funcitons can be reused in t
+	<!-- TODO: we leave the old form so that some of its funcitons can be reused in the new form  -->
 	<div id="wrapper">
     	<div class = "row">
     	<form id="fullform" name="fullform" action="test.php" method="post" onsubmit="return verifyFullForm(this);">
