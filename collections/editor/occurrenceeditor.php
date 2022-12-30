@@ -391,6 +391,7 @@ if($SYMB_UID){
 	elseif($goToMode == 2) $occArr = $occManager->carryOverValues($_REQUEST);
 	if(!$isEditor && $crowdSourceMode && $occManager->isCrowdsourceEditor()) $isEditor = 4;
 
+	// TODO: check here for navigation functionality examples
 	if($qryCnt !== false){
 		$navStr = '<b>';
 		if($occIndex > 0) $navStr .= '<a href="#" onclick="return submitQueryForm(0);" title="'.(isset($LANG['FIRST_REC'])?$LANG['FIRST_REC']:'First Record').'">';
@@ -527,6 +528,88 @@ else{
 		.fieldDiv{ float:left; margin-right: 20px; }
 		#identifierDiv img{ width:10px; margin-left: 5px; }
 		.editimg{ width: 15px; }
+
+		/* this is the style for the new form ------------------------------------*/
+		*{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        h2{
+            background: linear-gradient(1000deg, rgb(218, 200, 255), #34ace0);;
+            color: white;
+        }
+        .column{
+            float: left;
+            padding:10px;
+        }
+
+        .left{
+            width: 65%;
+        }
+        .right{
+            width: 35%;
+        }
+        
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+
+        }
+
+        .nav-bar{
+           
+           
+        }
+        .nav-bar a{
+            background-color: #00FFFF;
+           color: black;
+           border-style: solid;
+           border-color: black;
+           margin: 0;
+           
+        }
+        .nav-bar label{
+           background-color: #00FFFF;
+           color: black;
+           border-style: solid;
+           border-color: black;
+        }
+        .btn{
+            
+           
+        }
+        button{
+            color:black;
+            background-color: #34ace0;
+        }
+        .btn label{
+            color:black;
+            background-color: #34ace0;
+            border-style: solid;
+            border-color: black;
+        }
+
+        .data{
+            border-style: solid;
+            border-color: black;
+        }
+        .login-info{
+            border-style: solid;
+            border-color: black;
+        }
+        #wrapper {
+            margin-left:auto;
+            margin-right:auto;
+            width:960px;
+        }
+
+        img{
+            
+        }
+		/* style for the new form end ------------------------------------ */
+
 	</style>
 </head>
 <body>
@@ -548,6 +631,7 @@ else{
 			if(!$occArr && !$goToMode) $displayQuery = 1;
 			include 'includes/queryform.php';
 			?>
+			<!-- this is nav bar division Home>>collection management>>... -->
 			<div id="navDiv">
 				<?php
 				if($navStr){
@@ -602,6 +686,137 @@ else{
 				}
 				?>
 			</div>
+
+
+
+
+
+			
+
+	<!-- body part of the new form start from here -->
+	<!-- TODO: we leave the old form so that some of its funcitons can be reused in the new form  -->
+	<div id="wrapper">
+    	<div class = "row">
+    	<form id="fullform" name="fullform" action="test.php" method="post" onsubmit="return verifyFullForm(this);">
+    
+         <!-- navigation bar -->
+        <section>
+            <div class="btn" style = "border:1px solid black;">
+				<!-- TODO: these buttons need to have corresponding functions(more detailes are needed) -->
+				<!-- see button functionality in old code below, interpret their uses -->
+                    <button href="#restart">Restart</button>
+                    <button href="#ping">Ping</button>
+                    <button href="#detail">Detailed</button>
+                    <button href="#aws">AWS</button>
+                    <label for="" styles= "color">Jump to:</label>
+				<!-- TODO: the "input" needs functions to jumps to corresponding page number -->
+				<!-- TODO: the text need to be updated with the data info(connect to the database) -->
+                    <input type="text"> [cpellegrini/2022-11-03] file 1 of 427
+            </div>
+        </section> 
+		<!-- make sure all of the inputs connect to the corresponding database -->
+        <div class = "column left" style = "background-color: #F2F2F2">
+			<table style = "border:1px solid black;">
+				
+				<tr style = "backgroufnd-color:#86C5D8"><td colspan = '2'><h2>Transcribe into Fields</h2></td></tr>
+				
+				<!-- TODO: figure out where in the databses these fields go, implement database connection -->
+				<tr><td width = "40%">Barcode</td><td><input size = '50'    id = 'barcode' name = 'barcode'></td></tr>
+				<!-- TODO: figure out what are the options and update the texts -->
+				<tr><td>Herbarium</td><td><select id = 'herbarium'>
+									<option value = 'unit_1'> Unit 1
+									<option value = 'unit_2'> Unit 2
+				</td></tr>
+				<tr><td>Accession Num.</td><td><input size = '50'    id = 'accessionnum' name = 'accessionnum'></td></tr>
+				<!-- TODO: this input will trigger a list of existing file names the user chan choose -->
+				<tr><td>Filed Under</td><td><input size = '50'    id = 'filed' name = 'filed'></td></tr>
+				<tr><td>Current Name</td><td><input size = '50'    id = 'current' name = 'current'></td></tr>
+				<!-- TODO: figure out what are the options and update the texts -->
+				<tr><td>ID Qualifier</td><td><select id = 'id'>
+									<option value = 'unit_1'> Unit 1
+									<option value = 'unit_2'> Unit 2
+				</td></tr>
+				<!-- TODO: this input will trigger a list of existing file names the user chan choose -->
+				<tr><td>ID Qualifier</td><td><select id = 'id'>
+				<tr><td>Identified By</td><td><input size = '50'    id = 'identifiedby' name = 'identifiedby'></td></tr>
+				<tr><td>Date Identified</td><td><input size = '50'    id = 'dateidentified' name = 'dateidentified'></td></tr>	
+				<tr><td>Det. Text</td><td><input size = '50'    id = 'det' name = 'det'></td></tr>
+				<tr><td>Provenance</td><td><input size = '50'    id = 'provenence' name = 'provenence'></td></tr>
+				<tr><td>Collectors</td><td><input size = '50'    id = 'collectors' name = 'collectors'></td></tr>
+				<tr><td>Et al.</td><td><input size = '50'    id = 'etal' name = 'etal'></td></tr>
+				<tr><td>Collector Number</td><td><input size = '50'    id = 'collectornum' name = 'collectornum'></td></tr>
+				<tr><td>Date Collected</td><td><input size = '50'    id = 'datecollected' name = 'datecollected'></td></tr>
+				<tr><td>Verbatim Date</td><td><input size = '50'    id = 'vdate' name = 'vdate'></td></tr>
+				<!-- TODO: this input will trigger a list of existing file names the user chan choose -->
+				<tr><td>Container</td><td><input size = '50'    id = 'container' name = 'container'></td></tr>
+				<tr><td>Collecting Trip</td><td><input size = '50'    id = 'colltrip' name = 'colltrip'></td></tr>            <tr><td>Collectors</td><td><input size = '50'    id = 'collctors' name = 'collectors'></td></tr>
+				<tr><td>Geography Within</td><td><input size = '50'    id = 'geowithin' name = 'geowithin'></td></tr>
+				<tr><td>Higher Geography</td><td><input size = '50'    id = 'highgeo' name = 'highgeo'></td></tr>
+				<tr><td>VerbtimLocality</td><td><input size = '50'    id = 'vlocality' name = 'vlocality'></td></tr>
+				<tr><td>Habitat</td><td><input size = '50'    id = 'habitat' name = 'habitat'></td></tr>
+				<tr><td>Frequency</td><td><input size = '50'    id = 'frequency' name = 'frequency'></td></tr>
+				<tr><td>Description</td><td><input size = '50'    id = 'description' name = 'description'></td></tr>
+				<tr><td>Remarks</td><td><input size = '50'    id = 'remarks' name = 'remarks'></td></tr>
+				<tr><td>Project</td><td><input size = '50'    id = 'project' name = 'project'></td></tr>
+
+				
+				<!-- TODO: implement button functionality, examine relevant button divs in old code below ie saveedits button to get started -->
+				<!-- see old code for these buttons by searching for next_rec, prev_rec etc -->
+				<tr>
+					<td>
+					<div class = "btn">
+						<button href= "">Save</button>
+						<button href = "">Next</button>
+						<button href = "">Done</button>
+						<button href = "">Previous</button>
+					</div>
+					</td>
+				</tr>
+			</table>
+        <div class = "data">
+            <p>Loaded</p>  
+        </div>
+		
+        <div class = "login-info">
+            <p>123</p>
+        </div>
+        <p>12</p>
+    </div>
+
+    <!-- image part -->
+	<!-- TODO: implement image code from old form, see collections/editor/includes/imagetab.php and check the embedded code to get started -->
+    <div class = "column right" style = "border: 1; background-color:#F2F2F3;">
+        <div style = "border:1px solid black;">
+            <table>
+                <tr style = "backgroufnd-color:#34ace0"><td colspan = '2'><h2>Click to zoom in other window.</h2></td></tr>
+                <!-- TODO: the image should be updated with database -->
+				<!-- TODO: the image should be clickable and have some functions(zoom in/out) -->
+				<tr style = "text-align: center;"><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOwxvSve1jvNKgXtY40U7wyrTGKuYGUcWCTg&usqp=CAU"></td></tr>
+            </table>
+        </div>
+        <div style = "border:1px solid black;">
+            <table>
+				<!-- TODO: this text should be changed according to database(more info needed) -->
+                <tr><td>Record Created:</td> <td>New Record</td></tr>
+                <tr><td>Pre Method</td><td><input size = '20' id = 'premethod' name = 'premethod'></td></tr>
+                <tr><td>Format</td><td><input size = '20' id = 'format' name = 'format'></td></tr>
+            </table>
+        </div>
+        <div style = "border:1px solid black;">
+            <table> 
+                <tr><td width = '15%'>Verb. Elev.</td><td><input size = '25' id = 'verbelev' name = 'verbelev'></td></tr>
+                <tr><td width = '15%'>Verb. Lat.</td><td><input size = '25' id = 'verblat' name = 'verblat'></td></tr>
+                <tr><td width = '15%'>Verb. Long.</td><td><input size = '25' id = 'verblong' name = 'verblong'></td></tr>
+                <tr><td width = '15%'>Dec. Lat.</td><td><input size = '25' id = 'declat' name = 'declat'></td></tr>
+                <tr><td width = '15%'>Method</td><td><input size = '25' id = 'method' name = 'method'></td></tr>
+                <tr><td width = '15%'>Uncertainty</td><td><input size = '25' id = 'Uncertainty' name = 'Uncertainty'></td></tr>
+    </table>
+        </div>
+    </div>  
+    </form>
+			</div>
+<!-- the body part of the new form end at here -->
+
 			<?php
 			if($statusStr){
 				?>
@@ -646,6 +861,7 @@ else{
 				}
 				else{
 					?>
+					<!-- the tabs start from here -->
 					<table id="edittable" style="">
 						<tr><td id="editortd" style="" valign="top">
 							<div id="occedittabs" style="clear:both;">
@@ -654,7 +870,7 @@ else{
 										<a href="#occdiv"  style="">
 											<?php
 											if($occId) echo (isset($LANG['OCC_DATA'])?$LANG['OCC_DATA']:'Occurrence Data');
-											else echo '<span style="color:red;">'.(isset($LANG['NEW_OCC_RECORD'])?$LANG['NEW_OCC_RECORD']:'New Occurrence Record').'</span>';
+											else echo '<span style="color:red;">'.(isset($LANG['NEW_OCC_RECORD'])?$LANG['NEW_OCC_RECORD']:'New Occurrence RecorT').'</span>';
 											?>
 										</a>
 									</li>
@@ -717,8 +933,13 @@ else{
 									?>
 								</ul>
 								<div id="occdiv">
+									<!-- the main form starts from here -->
+									<?php 
+										echo("test")
+									?>
 									<form id="fullform" name="fullform" action="occurrenceeditor.php" method="post" onsubmit="return verifyFullForm(this);">
 										<fieldset>
+											<!-- collector info starts form here -->
 											<legend><?php echo (isset($LANG['COLLECTOR_INFO'])?$LANG['COLLECTOR_INFO']:'Collector Info'); ?></legend>
 											<?php
 											if($occId){
@@ -891,7 +1112,7 @@ else{
 											?>
 										</fieldset>
 										<fieldset>
-											<legend><?php echo (isset($LANG['LATEST_ID'])?$LANG['LATEST_ID']:'Latest Identification'); ?></legend>
+											<legend><?php echo (isset($LANG['LATEST_ID'])?$LANG['LATEST_ID']:'Latest'); ?></legend>
 											<div style="clear:both;">
 												<div id="scinameDiv">
 													<?php echo (defined('SCIENTIFICNAMELABEL')?SCIENTIFICNAMELABEL:(isset($LANG['SCINAME'])?$LANG['SCINAME']:'Scientific Name')); ?>
@@ -1443,6 +1664,7 @@ else{
                                                     <?php echo (defined('DATAGENERALIZATIONSLABEL')?DATAGENERALIZATIONSLABEL:'Data Generalizations'); ?><br/>
                                                     <input type="text" name="datageneralizations" value="<?php echo array_key_exists('datageneralizations',$occArr)?$occArr['datageneralizations']:''; ?>" onchange="fieldChanged('datageneralizations');" />
                                                 </div>
+												<!-- data generalization ends at here -->
 											</div>
 											<?php
 											if($occId){
@@ -1463,6 +1685,7 @@ else{
 														if(isset($occArr['dateentered']) && $occArr['dateentered']) echo ' ['.$occArr['dateentered'].']';
 														?>
 													</div>
+													<!-- record info ends at here -->
 												</div>
 												<?php
 											}
@@ -1609,6 +1832,7 @@ else{
 										</div>
 										<div style="clear:both;">&nbsp;</div>
 									</form>
+									<!-- the form ends at here -->
 								</div>
 							</div>
 						</td>
